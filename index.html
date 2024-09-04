@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catatan Tugas & Jadwal Sekolah</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Catatan Tugas & Jadwal Sekolah</h1>
+      <h2 id="greeting"></h2>
+    </div>
+    
+    <div class="current-day">
+      <h2>Jadwal Hari Ini: <span id="day-name"></span></h2>
+      <ul id="schedule-list" class="animated-list"></ul>
+    </div>
+
+    <div class="task-section">
+      <h2>Tugas</h2>
+      <ul id="task-list" class="animated-list"></ul>
+    </div>
+
+    <button class="add-btn" id="add-task-btn">Tambah Tugas</button>
+    
+    <!-- Form Tambah/Edit -->
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="close-modal">&times;</span>
+        <h2>Tambah/Edit Tugas</h2>
+        <form id="task-form">
+          <label for="task-name">Nama Tugas:</label>
+          <input type="text" id="task-name" required>
+          <label for="task-deadline">Deadline:</label>
+          <input type="date" id="task-deadline" required>
+          <button type="submit" class="save-btn">Simpan</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Success Popup -->
+    <div class="success-popup" id="success-popup">
+      <div class="success-message" id="success-message">
+        <span id="popup-text"></span>
+        <button id="popup-close">&times;</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
