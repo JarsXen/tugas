@@ -23,7 +23,7 @@ body {
   margin-bottom: 20px;
 }
 
-.current-day, .task-section {
+.current-day, .task-section, .progress-section, .motivation-section {
   margin-bottom: 20px;
 }
 
@@ -97,70 +97,33 @@ body {
   cursor: pointer;
 }
 
-.success-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Progress Bar */
+.progress-bar {
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 20px;
+  background-color: #3498db;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+/* Success Message Popup */
+.popup-message {
   display: none;
-  justify-content: center;
-  align-items: center;
-}
-
-.success-message {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  position: relative;
-  animation: fadeIn 0.5s ease-in-out, fadeOut 0.5s 2.5s forwards;
-}
-
-#popup-text {
-  font-size: 1.2em;
-  color: #2ecc71;
-}
-
-#popup-close {
-  position: absolute;
+  position: fixed;
   top: 10px;
-  right: 10px;
-  border: none;
-  background: none;
-  font-size: 1.5em;
-  cursor: pointer;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2ecc71;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 8px;
+  z-index: 1000;
 }
 
 /* Checkmark Animation */
@@ -169,6 +132,7 @@ body {
   display: inline-block;
   width: 50px;
   height: 50px;
+  margin: 0 auto;
 }
 
 .checkmark-circle {
@@ -208,6 +172,16 @@ body {
   animation: checkmark-kick 0.4s ease-in-out forwards;
 }
 
+.warning {
+  background-color: #f8d7da;
+}
+
+.warning-text {
+  color: #721c24;
+  font-weight: bold;
+}
+
+
 @keyframes checkmark-circle {
   0% {
     transform: scale(0);
@@ -235,8 +209,23 @@ body {
   }
 }
 
-/* Warning for approaching deadlines */
-.deadline-warning {
-  color: #e74c3c;
-  font-weight: bold;
+/* Animation for page load */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
