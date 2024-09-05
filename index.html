@@ -6,6 +6,9 @@
   <title>Catatan Tugas & Jadwal Sekolah</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-messaging.js"></script>
+
 </head>
 <body>
   <div class="container">
@@ -26,27 +29,45 @@
 
     <button class="add-btn" id="add-task-btn">Tambah Tugas</button>
     
-    <!-- Form Tambah/Edit -->
-    <div class="modal" id="modal">
-      <div class="modal-content">
-        <span class="close-btn" id="close-modal">&times;</span>
-        <h2>Tambah/Edit Tugas</h2>
-        <form id="task-form">
-          <label for="task-name">Nama Tugas:</label>
-          <input type="text" id="task-name" required>
-          <label for="task-deadline">Deadline:</label>
-          <input type="date" id="task-deadline" required>
-          <button type="submit" class="save-btn">Simpan</button>
-        </form>
+<!-- Form Modal -->
+<div id="task-modal" class="modal">
+  <div class="modal-content">
+    <span id="close-btn" class="close-btn">&times;</span>
+    <form id="task-form">
+      <label for="task-name">Nama Tugas:</label>
+      <input type="text" id="task-name" required>
+
+      <label for="task-deadline">Deadline:</label>
+      <input type="date" id="task-deadline" required>
+
+      <button type="submit" class="add-btn">Tambahkan Tugas</button>
+    </form>
+  </div>
+</div>
+
+    
+    <!-- Progress Bar -->
+    <div class="progress-section">
+      <h2>Progress Tugas</h2>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
       </div>
     </div>
-
-    <!-- Success Popup -->
-    <div class="success-popup" id="success-popup">
-      <div class="success-message" id="success-message">
-        <span id="popup-text"></span>
-        <button id="popup-close">&times;</button>
+    
+    <!-- Success Message -->
+    <div id="success-message" class="popup-message">
+      <div class="checkmark">
+        <div class="checkmark-circle"></div>
+        <div class="checkmark-stem"></div>
+        <div class="checkmark-kick"></div>
       </div>
+      <p id="success-text">Tugas Berhasil Ditambahkan!</p>
+    </div>
+
+    <!-- Daily Motivation -->
+    <div class="motivation-section">
+      <h2>Daily Quote:</h2>
+      <p id="daily-quote"></p>
     </div>
   </div>
 </body>
