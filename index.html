@@ -1,74 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catatan Tugas & Jadwal Sekolah</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-messaging.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Maintenance</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6E45E2, #88D3CE);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+        }
 
+        .container {
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .container h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .container p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .spinner {
+            border: 8px solid rgba(255, 255, 255, 0.2);
+            border-top: 8px solid white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .container h1 {
+                font-size: 3rem;
+            }
+
+            .container p {
+                font-size: 1rem;
+            }
+
+            .spinner {
+                width: 50px;
+                height: 50px;
+                border-width: 6px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>Catatan Tugas & Jadwal Sekolah</h1>
-      <h2 id="greeting"></h2>
+    <div class="container">
+        <h1>We'll Be Back Soon!</h1>
+        <p>Our application is currently undergoing maintenance. We are working hard to bring it back as soon as possible.</p>
+        <div class="spinner"></div>
     </div>
-    
-    <div class="current-day">
-      <h2>Jadwal Hari Ini: <span id="day-name"></span></h2>
-      <ul id="schedule-list" class="animated-list"></ul>
-    </div>
-
-    <div class="task-section">
-      <h2>Tugas</h2>
-      <ul id="task-list" class="animated-list"></ul>
-    </div>
-
-    <button class="add-btn" id="add-task-btn">Tambah Tugas</button>
-    
-<!-- Form Modal -->
-<div id="task-modal" class="modal">
-  <div class="modal-content">
-    <span id="close-btn" class="close-btn">&times;</span>
-    <form id="task-form">
-      <label for="task-name">Nama Tugas:</label>
-      <input type="text" id="task-name" required>
-
-      <label for="task-deadline">Deadline:</label>
-      <input type="date" id="task-deadline" required>
-
-      <button type="submit" class="add-btn">Tambahkan Tugas</button>
-    </form>
-  </div>
-</div>
-
-    
-    <!-- Progress Bar -->
-    <div class="progress-section">
-      <h2>Progress Tugas</h2>
-      <div class="progress-bar">
-        <div class="progress-fill" id="progress-fill"></div>
-      </div>
-    </div>
-    
-    <!-- Success Message -->
-    <div id="success-message" class="popup-message">
-      <div class="checkmark">
-        <div class="checkmark-circle"></div>
-        <div class="checkmark-stem"></div>
-        <div class="checkmark-kick"></div>
-      </div>
-      <p id="success-text">Tugas Berhasil Ditambahkan!</p>
-    </div>
-
-    <!-- Daily Motivation -->
-    <div class="motivation-section">
-      <h2>Daily Quote:</h2>
-      <p id="daily-quote"></p>
-    </div>
-  </div>
 </body>
 </html>
